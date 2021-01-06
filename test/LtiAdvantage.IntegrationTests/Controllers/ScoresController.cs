@@ -1,14 +1,18 @@
 ﻿using System.Threading.Tasks;
+using LtiAdvantage.AspNetCore.AssignmentGradeServices;
 using LtiAdvantage.AssignmentGradeServices;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+#if NETCOREAPP2_1
+using IWebHostEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+#endif
 
 namespace LtiAdvantage.IntegrationTests.Controllers
 {
     public class ScoresController : ScoresControllerBase
     {
-        public ScoresController(IHostingEnvironment env, ILogger<ScoresControllerBase> logger) : base(env, logger)
+        public ScoresController(IWebHostEnvironment env, ILogger<ScoresControllerBase> logger) : base(env, logger)
         {
         }
 
